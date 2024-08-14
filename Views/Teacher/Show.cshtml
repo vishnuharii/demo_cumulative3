@@ -1,0 +1,35 @@
+﻿@model HTTP5112_Cumulative_3.Models.Teacher
+@{
+    ViewBag.Title = "Show";
+}
+
+<div>
+    <a class="navlink" href="/Home">Back To Home</a>
+    |
+    <a class="navlink" href="/Teacher/List">Back To Teachers</a>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Teachers Page</h1>
+</div>
+
+<div id="containershow">
+    <div class="link">
+        <a href="/Teacher/DeleteConfirm/@Model.TeacherId">Delete</a>
+        |
+        <a href="/Teacher/Update/@Model.TeacherId">Update</a>
+    </div>
+    <h2>@Model.TeacherFname @Model.TeacherLname</h2>
+    <p>Employee Number: @Model.EmployeeNumber</p>
+    <p>Hire Date: @Model.HireDate</p>
+    <p>Salary: @Model.Salary</p>
+    <p>
+        Class:
+        <ol>
+            @foreach (var Class in Model.CourseTaught)
+            {
+                <li><a href="/Class/Show/@Class.ClassId">@Class.ClassCode @Class.ClassName</a></li>
+            }
+        </ol>
+    </p>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<HTTP5112_Cumulative_3.Models.Class>
+@{
+    ViewBag.Title = "Class List";
+}
+
+<div>
+    <a class="navlink" href="/Home">Back To Home</a>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Classes Page</h1>
+</div>
+
+<div id="containerlist">
+    <h2>List of Classes</h2>
+    <form action="/Class/List" method="GET">
+        <label for="classCode">Class Code:</label>
+        <input type="text" id="classCode" name="classCode" autocomplete="off" /><br />
+        <label for="className">Class Name:</label>
+        <input type="text" id="className" name="className" autocomplete="off" /><br />
+        <p>
+            Semester:
+            <input type="checkbox" id="fall" name="semester" value="9" checked>
+            <label for="fall">Fall</label>
+            <input type="checkbox" id="winter" name="semester" value="1" checked>
+            <label for="winter">Winter</label>
+        </p>
+        <input type="submit" value="Search" />
+    </form>
+    @foreach (var Class in Model)
+    {
+        <div class="listitem row">
+            <div class="col-md-12"><a href="/Class/Show/@Class.ClassId">@Class.ClassCode @Class.ClassName</a></div>
+        </div>
+    }
+</div>

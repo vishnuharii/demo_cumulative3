@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "New";
+}
+
+<div>
+    <a class="navlink" href="/Home">Back To Home</a>
+    |
+    <a class="navlink" href="/Teacher/List">Back To Teachers</a>
+</div>
+
+<div class="text-center">
+    <h1 class="display-4">Teachers Page</h1>
+</div>
+
+<div id="containershow">
+    <h2>Update Teacher</h2>
+    <form method="POST" action="/Teacher/Update/@Model.TeacherId" name="updateform">
+        <div class="inputrow">
+            <label for="TeacherFname">First Name:</label>
+            <input type="text" id="TeacherFname" name="TeacherFname" value="@Model.TeacherFname" />
+            <span class="err-msg" id="err-fname"></span>
+        </div>
+        <div class="inputrow">
+            <label for="TeacherLname">Last Name:</label>
+            <input type="text" id="TeacherLname" name="TeacherLname" value="@Model.TeacherLname" />
+            <span class="err-msg" id="err-lname"></span>
+        </div>
+        <div class="inputrow">
+            <label for="EmployeeNumber">Employee Number:</label>
+            <input type="text" id="EmployeeNumber" name="EmployeeNumber" value="@Model.EmployeeNumber" />
+            <span class="err-msg" id="err-number"></span>
+        </div>
+        <div class="inputrow">
+            <label for="HireDate">Hire Date:</label>
+            <input id="HireDate" name="HireDate" value="@Model.HireDate" />
+            <span class="err-msg" id="err-date"></span>
+        </div>
+        <div class="inputrow">
+            <label for="Salary">Salary:</label>
+            <input id="Salary" name="Salary" value="@Model.Salary" />
+            <span class="err-msg" id="err-salary"></span>
+        </div>
+        <div class="inputrow">
+            <input type="submit" value="Update Teacher" />
+        </div>
+    </form>
+</div>
